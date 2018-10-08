@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07.10.2018 16:23:16
+// Create Date: 07.10.2018 20:54:55
 // Design Name: 
-// Module Name: Desalojo1
+// Module Name: Deco2to4OutNegwithEneable
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,25 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Desalojo1(desalojo1,A,D);
-input [3:0]A,D;
-output desalojo1;
+module Deco2to4OutNegwithEneable(Dn,Eneable,A);
+input Eneable;
+input [1:0] A;
+output [3:0]Dn;
+reg [3:0]Dn;
 
-assign desalojo1=(A[0]&~D[0]) & (A[1]&~D[1]) & (A[2]&~D[2]) & (A[3]&~D[3]);
+always @(Eneable,A) begin
+    case({Eneable,A})
+        3'b000: Dn=4'b1110;
+        2'b001: Dn=4'b1101;
+        2'b010: Dn=4'b1011;
+        2'b011: Dn=4'b0111;
+        default: Dn=4'b1111;
+    
+    endcase
+
+
+end
+
 
 
 endmodule

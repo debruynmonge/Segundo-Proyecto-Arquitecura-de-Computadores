@@ -21,7 +21,7 @@
 
 
 module MUX4to1( O,A,B,C,D,SEL  );
-parameter k=2;  //Determina cuantos la cantidad de mux que quir
+parameter k=32;  //Determina cuantos la cantidad de mux que quir
 input [k-1:0] A,B,C,D;
 input [1:0]SEL;
 output [k-1:0]O;

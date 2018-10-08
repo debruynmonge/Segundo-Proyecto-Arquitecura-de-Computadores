@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 07.10.2018 16:23:16
+// Create Date: 07.10.2018 21:33:18
 // Design Name: 
-// Module Name: Desalojo1
+// Module Name: Mux2to1
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,11 +20,20 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Desalojo1(desalojo1,A,D);
-input [3:0]A,D;
-output desalojo1;
+module Mux2to1_64(O,A,B,SEL);
+parameter k=64;
+input [k-1:0]A,B;
+input SEL;
+output [k-1:0]O;
+reg [k-1:0]O;
 
-assign desalojo1=(A[0]&~D[0]) & (A[1]&~D[1]) & (A[2]&~D[2]) & (A[3]&~D[3]);
+always @(*) begin
+    case(SEL)
+        1'b0: O=A;
+        1'b1: O=B;        
+    endcase
+
+end
 
 
 endmodule
