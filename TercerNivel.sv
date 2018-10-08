@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+/*
 
 module TercerNivel( Hit, Desalojo, D_PUSH, Dato_Salida , DatoEntrada, D_POP,Address, CLK, Lectura_Escritura, Clear_Main_REG,
                     Eneable_Main_REG, Sel_Mux_Bank, Clear_Tag_Banks, Sel_Mux_Mem, R_W,  Clear_Formador, Eneable_Formador,
@@ -49,3 +49,6 @@ Mux2to1_24 MuxInputAddress (.O(OMIA),.A(Address),.B(D_POP[87:64]),.SEL(Lectura_E
 
 
 endmodule
+
+*/
+

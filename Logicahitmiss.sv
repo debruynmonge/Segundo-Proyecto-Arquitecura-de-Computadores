@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
+/*
 module Logicahitmiss(Hit,H,T1,T2,T3,T4,Address,D1,D2,D3,D4);
 parameter k=12;
 input [k-1:0] T1,T2,T3,T4,Address;
@@ -105,3 +105,4 @@ wire [(k/4)-1:0] AA1,AA2,AA3,AA4;
            
 
 endmodule
+*/

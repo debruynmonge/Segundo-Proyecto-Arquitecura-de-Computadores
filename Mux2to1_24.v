@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07.10.2018 21:49:23
-// Design Name: 
-// Module Name: Mux2to1_24
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+//Jacobo De Bruyn Monge
+//Multiplexor parametrizable de 2 entradas 
 //////////////////////////////////////////////////////////////////////////////////
 
 

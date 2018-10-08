@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07.10.2018 16:23:16
-// Design Name: 
-// Module Name: Desalojo1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Jacobo De Bruyn Monge
+// Logica para detectar el primer desalojo 
 //////////////////////////////////////////////////////////////////////////////////
 
 
