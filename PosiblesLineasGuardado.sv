@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07.10.2018 15:45:36
-// Design Name: 
-// Module Name: PosiblesLineasGuardado
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Jacobo De Bruyn Monge
+//Logica para determinar en cuales lineas es posible almacenar el dato 
 //////////////////////////////////////////////////////////////////////////////////
 
 

@@ -1,12 +1,27 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-//Jacobo De Bruyn Monge
-// Banco de registros parametrizable, con reset asincrono. El banco se reinicia con un 1 en el reset. Guarda en el ciclo positivo del CLOCK
+// Company: 
+// Engineer: 
+// 
+// Create Date: 08.10.2018 20:06:41
+// Design Name: 
+// Module Name: REGBANK64B
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module BancoRegistros(Q,D,CLK,Reset, Eneable);
-parameter k=88;
+module REGBANK64B(Q,D,CLK,Reset, Eneable);
+parameter k=64;
 input Reset,CLK, Eneable;
 input [k-1:0]D;
 output [k-1:0]Q;
@@ -22,6 +37,4 @@ generate
 
 endgenerate
 
-
 endmodule
-

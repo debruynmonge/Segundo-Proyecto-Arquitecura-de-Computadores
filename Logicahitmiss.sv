@@ -84,10 +84,7 @@ wire [(k/4)-1:0] AA1,AA2,AA3,AA4;
  
  
     
-   //assign a1j= x1[k-1:0] & ~D1;
-    //        assign a2j=x2[k-1:0] & ~D2;
-      //      assign a3j=x3[k-1:0] & ~D3;
-        //    assign a4j=x4[k-1:0] & ~D4;
+   
     
     
     
@@ -105,4 +102,6 @@ wire [(k/4)-1:0] AA1,AA2,AA3,AA4;
            
 
 endmodule
+
+
 */

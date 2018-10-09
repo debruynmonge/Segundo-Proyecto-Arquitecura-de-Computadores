@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-/*
+
 
 module TercerNivel( Hit, Desalojo, D_PUSH, Dato_Salida , DatoEntrada, D_POP,Address, CLK, Lectura_Escritura, Clear_Main_REG,
                     Eneable_Main_REG, Sel_Mux_Bank, Clear_Tag_Banks, Sel_Mux_Mem, R_W,  Clear_Formador, Eneable_Formador,
@@ -34,15 +34,17 @@ output [88:0]D_PUSH;
 output [7:0]Dato_Salida;
 
 
-Wire [63:0] OMID;  //Output MUX Input Data
-Wire [23:0] OMIA;  //Output MUX Input Address
+wire [87:0] OMD;  //Output MUXES Data
+wire [87:0] OMR; //Output Main REG (63:0) Data..... (87:64) Address
 
 
 //Multiplexores de 2 a 1
 
-Mux2to1_64 MuxInputData (.O(OMID),.A(DatoEntrada),.B(D_POP[63:0]),.SEL(Lectura_Escritura));
-Mux2to1_24 MuxInputAddress (.O(OMIA),.A(Address),.B(D_POP[87:64]),.SEL(Lectura_Escritura));
+Mux2to1_64 MuxInputData (.O(OMD[63:0]),.A(DatoEntrada),.B(D_POP[63:0]),.SEL(Lectura_Escritura));
+Mux2to1_24 MuxInputAddress (.O(OMD[87:64]),.A(Address),.B(D_POP[87:64]),.SEL(Lectura_Escritura));
 
+//Instanciando bancos de registros
+BancoRegistros REGBANK (.Q(),.D(OMD),.CLK(CLK),.Reset(Clear_Main_REG));
 
 
 
@@ -50,5 +52,5 @@ Mux2to1_24 MuxInputAddress (.O(OMIA),.A(Address),.B(D_POP[87:64]),.SEL(Lectura_E
 
 endmodule
 
-*/
+
 

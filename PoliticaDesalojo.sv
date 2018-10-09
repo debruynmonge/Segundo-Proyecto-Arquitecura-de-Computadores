@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 07.10.2018 15:24:40
-// Design Name: 
-// Module Name: Politica de Desalojo
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+//Jacobo De Bruyn Monge
+//Politica de desalojo, Cualquiera menos el ultimo en ser usado
 //////////////////////////////////////////////////////////////////////////////////
 
 
