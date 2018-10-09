@@ -36,6 +36,8 @@ output [7:0]Dato_Salida;
 
 wire [87:0] OMD;  //Output MUXES Data
 wire [87:0] OMR; //Output Main REG (63:0) Data..... (87:64) Address
+wire [63:0] wBytes;   //Output Logica Guardado de un byte o una línea
+wire [63:0]  wOBD; // Output Banco de datos
 
 
 //Multiplexores de 2 a 1
@@ -44,8 +46,11 @@ Mux2to1_64 MuxInputData (.O(OMD[63:0]),.A(DatoEntrada),.B(D_POP[63:0]),.SEL(Lect
 Mux2to1_24 MuxInputAddress (.O(OMD[87:64]),.A(Address),.B(D_POP[87:64]),.SEL(Lectura_Escritura));
 
 //Instanciando bancos de registros
-BancoRegistros REGBANK (.Q(),.D(OMD),.CLK(CLK),.Reset(Clear_Main_REG));
+BancoRegistros REGBANK (.Q(OMR),.D(OMD),.CLK(CLK),.Reset(Clear_Main_REG));
 
+
+//Instanciando Lógica Guardado de un Byte o una línea
+ByteOrLineLogic(.Bytes(wBytes),.LineOrByte( Lectura_Escritura),.AddressLine(OMR[77:75]), .Data( OMR[63:0]),.BankRegData(wOBD), .Clear(Clear_LDG_REG),.CLK(CLK), .Habilitador_Registros(Eneable_REG));
 
 
 
