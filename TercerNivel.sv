@@ -38,6 +38,18 @@ wire [87:0] OMD;  //Output MUXES Data
 wire [87:0] OMR; //Output Main REG (63:0) Data..... (87:64) Address
 wire [63:0] wBytes;   //Output Logica Guardado de un byte o una línea
 wire [63:0]  wOBD; // Output Banco de datos
+wire [1:0] wSel_Mem; // Output final muxes
+wire [63:0] wLineData; //Output data bank
+wire [10:0]wAdrresLogicHit; // Output Address logic hit or miss
+wire [13:0] wTag1,wTag2,wTag3,wTag4,wTagMain;
+wire wSel_Mem_0,wSel_Mem_1;
+wire [1:0] S;//Output politica de desalojo
+wire wdesalojo1,wdesalojo2,wDesalojo;
+wire [3:0] C;
+wire [1:0]G;
+wire [1:0]H;
+wire [88:0]wD_PUSH;
+
 
 
 //Multiplexores de 2 a 1
@@ -51,6 +63,56 @@ BancoRegistros REGBANK (.Q(OMR),.D(OMD),.CLK(CLK),.Reset(Clear_Main_REG));
 
 //Instanciando Lógica Guardado de un Byte o una línea
 ByteOrLineLogic(.Bytes(wBytes),.LineOrByte( Lectura_Escritura),.AddressLine(OMR[77:75]), .Data( OMR[63:0]),.BankRegData(wOBD), .Clear(Clear_LDG_REG),.CLK(CLK), .Habilitador_Registros(Eneable_REG));
+
+//Instanciando el banco de datos
+//BancoDatos Banco1(.LineData(wLineData),.Sel_Mem(wSel_Mem),.Eneable(Bank_Eneable), .Data(wBytes), .Address(wAdrresLogicHit), .WriteEneable(Write_Eneable), .CLK(CLK) );
+
+//Instanciando banco de Etiquetas
+//BancoEtiquetas(.Main_Tag(wTagMain), .Tag1(wTag1), .Tag2(wTag2), .Tag3(wTag3), .Tag4(wTag4), .Input_Tag(OMR[75:64]), .LineNumber(OMR[78:76]),
+  //                    .CLK(CLK), .Sel_Mem_0(wSel_Mem_0), .Sel_Mem_1(wSel_Mem_1), .clear(Clear_Tag_Banks), .Eneable(Bank_Eneable),
+    //                  .Write_Eneable(Write_Eneable), .Sel_Mux_Bank(Sel_Mux_Bank) ,
+      //                .Sel_Mux_Mem_0(Sel_Mux_Mem[0]), .Sel_Mux_Mem_1(Sel_Mux_Mem[1]));
+
+
+
+//Instanciando logica hit miss
+
+
+
+//Instanciando Politica de desalojo
+PoliticaDesalojo PDD (.S(S),.B({wTag1[11],wTag2[11],wTag3[11],wTag4[11]}),.D({wTag1[13],wTag2[13],wTag3[13],wTag4[13]})); 
+
+
+//Instanciando Deteccion de desalojo
+//desalojo 1
+Desalojo1 Des1 (.desalojo1(wdesalojo1),.A({wTag1[12],wTag2[12],wTag3[12],wTag4[12]}),.D({wTag1[13],wTag2[13],wTag3[13],wTag4[13]}));
+//Uniendo ambas señales de desalojo
+or ORDesa1(wDesalojo,wdesalojo1,wdesalojo2);
+
+
+
+//Instanciando Logica de seleccion de lugar para guardar
+//Posibles Lineas donde se puede Guardar
+PosiblesLineasGuardado (.C(C),.A({wTag1[12],wTag2[12],wTag3[12],wTag4[12]}),
+                        .B({wTag1[11],wTag2[11],wTag3[11],wTag4[11]}),
+                        .D({wTag1[13],wTag2[13],wTag3[13],wTag4[13]}));
+//Determina en cual linea se va a guardar el dato
+DeterminaLineaGuardado (.G(G),.Desalojo2(wdesalojo2),.C(C));
+
+
+
+
+//Instanciando registro formador de mensaje
+//---------------------Me faLTTA TERMINAR DE ARMAR EL MENSAJE------------------------
+BancoRegistros #(88)(.Q(wD_PUSH),.D({}),.CLK(CLK),.Reset(Clear_Formador), .Eneable(Eneable_Formador));
+assign wD_PUSH=D_PUSH;
+
+// Instanciando multiplexores 
+//Multiplexor al cual entran las salidas de las logicas de guardado
+Mux4to1_TagBank  #(2)(.O({wSel_Mem_1,wSel_Mem_0}),.A(G),.B(S),.C(H),.D(2'b00),.SEL(Sel_Mux_Mem) );
+
+
+//Instanciar logica de Hit miss
 
 
 
