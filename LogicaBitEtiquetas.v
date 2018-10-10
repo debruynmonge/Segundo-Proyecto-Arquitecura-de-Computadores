@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module LogicaBitEtiquetas(BA_Ultimo,BA_Dirty, BA_Invalid, Uso,Sel_Mux_Mem_0, Sel_Mux_Mem_1, Bit_Invalid, Bit_Ultimo, Bit_Dirty);
+module LogicaBitEtiquetas(Bit_Invalid, Bit_Ultimo, Bit_Dirty, BA_Ultimo,BA_Dirty, BA_Invalid, Uso,Sel_Mux_Mem_0, Sel_Mux_Mem_1 );
 input BA_Ultimo, BA_Dirty,BA_Invalid,Uso,Sel_Mux_Mem_0,Sel_Mux_Mem_1;
 output Bit_Invalid, Bit_Ultimo, Bit_Dirty;
 
