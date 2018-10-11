@@ -49,7 +49,7 @@ Control(.Clear_Main_REG(wClear_Main_REG), .Eneable_Main_REG(wEneable_Main_REG), 
         .Clear_Tag_Bank_REG(wClear_Tag_Banks), .Sel_Mux_Mem_0(wSel_Mux_Mem[0]), .Sel_Mux_Mem_1(wSel_Mux_Mem[1]),
         .Eneable_REG(wEneable_REG), .Clear_LDG_REG(wClear_LDG_REG), .Write_Eneable(wWrite_Eneable),
         .Banks_Eneable(wBank_Eneable), .R_W(wR_W), .Clear_Formador(wClear_Formador), .Eneable_Formador(wEneable_Formador),
-        .PNDNG(PNDNG),.Ejecute(Ejecute),.Lectura_Escritura(Lectura_Escritura),.Hit(wHit),.Desajolo(wDesalojo), .CLK(CLK));
+        .PNDNG(PNDNG),.Ejecute(Ejecute),.Lectura_Escritura(Lectura_Escritura),.Hit(wHit),.Desalojo(wDesalojo), .CLK(CLK));
 
 
 
