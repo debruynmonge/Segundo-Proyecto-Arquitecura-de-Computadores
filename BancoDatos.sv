@@ -33,7 +33,7 @@ wire [63:0] BankDataOutputA,BankDataOutputB,BankDataOutputC,BankDataOutputD;
  
     
     //Instanciar decodificador
-    Deco2to4OutNegwithEneable Deco1 (.Dn(wCE),.Eneable(Eneable),.A(Sel_Mem));
+    Deco2to4OutNegwithEneable DECO1 (.Dn(wCE),.Eneable(Eneable),.A(Sel_Mem));
     
     
     //Instanciar  Banco 1 Memoria

@@ -1,22 +1,7 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 08.10.2018 21:25:20
-// Design Name: 
-// Module Name: Deco3inputs
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// Jacobo De Bruyn Monge
+// Deco de 3 entradas 
 //////////////////////////////////////////////////////////////////////////////////
 
 
